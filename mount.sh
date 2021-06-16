@@ -15,5 +15,5 @@ sudo partprobe ${PART_DEV}
 sudo mkdir ${MOUNT_PATH}
 sudo chown $USER ${MOUNT_PATH}
 sudo mount ${PART_DEV} ${MOUNT_PATH}
-eval blkid -o export ${PART_DEV}
+eval $(blkid -o export ${PART_DEV})
 echo "UUID=${PARTUUID}  ${MOUNT_PATH}   xfs   defaults,nofail   1   2" | sudo tee -a /etc/fstab
